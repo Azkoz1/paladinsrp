@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Boutique · PaladinsRP</title>
+<meta name="description" content="Paladins Coins : la monnaie de la boutique PaladinsRP. Véhicules exclusifs, animaux, personnalisation et packs à débloquer en jeu.">
+<meta name="theme-color" content="#09070D">
+<meta property="og:title" content="Boutique · PaladinsRP">
+<meta property="og:description" content="Recharge tes Paladins Coins et débloque véhicules exclusifs, animaux et personnalisation en jeu.">
+<meta property="og:image" content="assets/img/og.jpg">
+<meta property="og:type" content="website">
+<link rel="icon" type="image/png" href="assets/img/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@600&family=Rajdhani:wght@600&family=Montserrat:wght@600&family=Barlow:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="assets/css/boutique.css">
+<script src="https://js.tebex.io/v/1.js"></script>
+</head>
+<body>
+<a class="saut" href="#contenu">Aller au contenu</a>
+<header class="site-nav">
+  <a href="index.html" class="site-logo"><img src="assets/img/logo.webp" alt=""><span>PaladinsRP</span></a>
+  <nav class="site-liens" aria-label="Navigation principale"><a href="index.html">Accueil</a><a href="lore.html">Le lore</a><a href="serveur.html">Le serveur</a><a href="boutique.html" aria-current=page>Boutique</a><a href="reglement.html">Règlement</a></nav>
+  <button class="panier-btn" id="panierBtn" aria-label="Ouvrir le panier"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M3 4h2l2.4 11.2a1.5 1.5 0 0 0 1.5 1.2h8.7a1.5 1.5 0 0 0 1.5-1.1L21 8H6.2"/><circle cx="9.5" cy="20" r="1.3" fill="currentColor"/><circle cx="17.5" cy="20" r="1.3" fill="currentColor"/></svg><span class="panier-nb" id="panierNb" hidden>0</span></button>
+  <button class="burger" aria-expanded="false" aria-label="Ouvrir le menu">MENU</button>
+</header>
+<main id="contenu">
+
+<section class="page-tete boutique-tete">
+  <div class="c">
+    <p class="sur">Boutique officielle</p>
+    <h1>Paladins<br>Coins</h1>
+    <p class="slogan">Ta ville, ton style.</p>
+    <p class="lead">Les Paladins Coins sont la monnaie de la boutique en jeu. Une supercar que personne d'autre ne conduit, un compagnon à quatre pattes, une plaque à ton nom : c'est toi qui choisis ce que tu débloques, quand tu veux.</p>
+    <div class="meta"><span class="chip violet">Paiement sécurisé Tebex</span><span class="chip">Livraison sur ton compte en jeu</span><span class="chip">Soutien direct au serveur</span></div>
+  </div>
+</section>
+
+<section class="section packs-section" aria-labelledby="titre-packs">
+  <div class="c">
+    <div class="tete">
+      <p class="sur">01 · Choisis ton pack</p>
+      <h2 id="titre-packs">Plus le pack est <em>gros</em>, plus tu gagnes</h2>
+      <p class="lead">Les prix sont affichés hors taxes. La TVA de ton pays s'ajoute au moment du paiement.</p>
+    </div>
+    <div class="packs" id="packs" aria-live="polite"></div>
+    <p class="packs-erreur" id="packsErreur" hidden></p>
+  </div>
+</section>
+
+<section class="section debloque" aria-labelledby="titre-debloque">
+  <div class="c">
+    <div class="tete">
+      <p class="sur">02 · Dépense-les en jeu</p>
+      <h2 id="titre-debloque">Ce que tes coins <em>débloquent</em></h2>
+      <p class="lead">Ouvre la boutique depuis le jeu et échange tes coins contre ce qui te fait envie. Le catalogue s'enrichit au fil des mises à jour.</p>
+    </div>
+    <div class="grille-sys">
+      <div><h3>Véhicules exclusifs</h3><p>Des modèles introuvables chez les concessionnaires, à garer dans ton garage et à sortir quand la ville dort.</p></div>
+      <div><h3>Animaux de compagnie</h3><p>Chien, chat, perroquet ou aigle : un compagnon qui te suit partout et qui donne vie à ton personnage.</p></div>
+      <div><h3>Personnalisation</h3><p>Plaque d'immatriculation sur mesure, numéro de téléphone choisi : laisse ta signature sur Los Santos.</p></div>
+      <div><h3>Armes de mêlée</h3><p>Des objets décalés pour se défendre avec du style, de la baguette au panneau de signalisation.</p></div>
+      <div><h3>Objets</h3><p>Enceinte portable, appareil photo et accessoires pour tes soirées et tes scènes de RP.</p></div>
+      <div><h3>Packs</h3><p>Des lots complets à prix réduit pour bien démarrer ta nouvelle vie en ville.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section etapes-section" aria-labelledby="titre-etapes">
+  <div class="c">
+    <div class="tete">
+      <p class="sur">03 · Simple et rapide</p>
+      <h2 id="titre-etapes">Comment ça <em>marche</em></h2>
+    </div>
+    <ol class="etapes">
+      <li><span>01</span><h3>Choisis ton pack</h3><p>Ajoute-le au panier. Tu vois tout de suite le prix hors taxes.</p></li>
+      <li><span>02</span><h3>Connecte ton compte</h3><p>Connexion Cfx.re : c'est elle qui relie ton achat à ton personnage.</p></li>
+      <li><span>03</span><h3>Paie en sécurité</h3><p>Carte, PayPal ou autre moyen proposé par Tebex, sans quitter le site.</p></li>
+      <li><span>04</span><h3>Profite en jeu</h3><p>Tes coins arrivent sur ton compte, prêts à être dépensés dans la boutique.</p></li>
+    </ol>
+  </div>
+</section>
+
+<section class="section faq-section" aria-labelledby="titre-faq">
+  <div class="c faq">
+    <div class="tete">
+      <p class="sur">Questions fréquentes</p>
+      <h2 id="titre-faq">Bon à <em>savoir</em></h2>
+    </div>
+    <div>
+      <details><summary>Pourquoi le prix change au paiement ?</summary><p>Les prix sont affichés hors taxes. Tebex ajoute la TVA de ton pays au moment de payer, et le total exact s'affiche dans ton panier avant de valider.</p></details>
+      <details><summary>Le paiement est-il sécurisé ?</summary><p>Oui. Le paiement est géré par Tebex, la plateforme officielle de paiement de FiveM. PaladinsRP ne voit jamais tes informations bancaires.</p></details>
+      <details><summary>Je n'ai pas reçu mes coins, que faire ?</summary><p>Ouvre un ticket sur le Discord avec ton numéro de transaction Tebex (reçu par e-mail). Le staff vérifie et règle ça au plus vite.</p></details>
+      <details><summary>Est-ce que les coins donnent un avantage injuste ?</summary><p>Non. La boutique propose du confort et du style. Le RP, l'argent sale et la réputation se gagnent en jeu, pas avec une carte bancaire.</p></details>
+      <details><summary>Puis-je me faire rembourser ?</summary><p>Les achats sont des biens numériques livrés immédiatement. Les demandes sont traitées au cas par cas selon les conditions de Tebex.</p></details>
+    </div>
+  </div>
+</section>
+
+<section class="appel">
+  <h2>Une question avant d'acheter ?</h2>
+  <p class="lead">Le staff répond sur le Discord, dans le salon support.</p>
+  <div class="actions"><a class="btn btn-p" href="https://discord.gg/paladinsrp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.7 19.7 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.8-9.8-3.6-13.8ZM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>Rejoindre le Discord</a></div>
+</section>
+</main>
+
+<div class="fiche-pack" id="fiche" hidden role="dialog" aria-modal="true" aria-labelledby="ficheTitre">
+  <div class="voile" data-fermer></div>
+  <div class="fiche-panneau">
+    <button class="fermer" data-fermer aria-label="Fermer">&times;</button>
+    <div class="fiche-img"><img id="ficheImg" alt=""></div>
+    <div class="fiche-corps">
+      <p class="sur" id="ficheSur"></p>
+      <h2 id="ficheTitre"></h2>
+      <div class="fiche-desc" id="ficheDesc"></div>
+      <div class="fiche-pied">
+        <div class="prix" id="fichePrix"></div>
+        <button class="btn btn-p" id="ficheAcheter">Ajouter au panier</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<aside class="panier" id="panier" hidden aria-label="Panier">
+  <div class="voile" data-fermer></div>
+  <div class="panier-panneau">
+    <div class="panier-tete"><h2>Panier</h2><button class="fermer" data-fermer aria-label="Fermer">&times;</button></div>
+    <p class="panier-user" id="panierUser" hidden></p>
+    <div class="panier-items" id="panierItems"></div>
+    <dl class="panier-total">
+      <div><dt>Sous-total HT</dt><dd id="totHT">0,00 €</dd></div>
+      <div><dt>TVA</dt><dd id="totTVA">0,00 €</dd></div>
+      <div class="ttc"><dt>Total TTC</dt><dd id="totTTC">0,00 €</dd></div>
+    </dl>
+    <button class="btn btn-p panier-payer" id="payer" disabled>Payer</button>
+    <p class="panier-note">Paiement sécurisé par Tebex. La TVA dépend de ton pays et s'ajuste au paiement.</p>
+  </div>
+</aside>
+<div class="toast" id="toast" hidden role="status"></div>
+
+<footer class="pied">
+  <nav aria-label="Pied de page"><a href="lore.html">Le lore</a><a href="serveur.html">Le serveur</a><a href="boutique.html">Boutique</a><a href="reglement.html">Règlement</a><a href="https://discord.gg/paladinsrp" target="_blank" rel="noopener">Discord</a><a href="https://checkout.tebex.io/terms" target="_blank" rel="noopener">CGV Tebex</a></nav>
+  <p>Paiements gérés par Tebex. PaladinsRP n'est affilié ni à Rockstar Games ni à Take-Two Interactive.</p>
+</footer>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/boutique.js"></script>
+</body>
+</html>
