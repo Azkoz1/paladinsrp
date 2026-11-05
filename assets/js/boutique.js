@@ -233,6 +233,27 @@
     $('totTVA').textContent = prix(tva, devise);
     $('totTTC').textContent = prix(ttc, devise);
     $('payer').disabled = items.length === 0;
+    $('codeForm').hidden = items.length === 0;
+    var codes = (b && b.coupons) || [];
+    $('codesActifs').hidden = codes.length === 0;
+    $('codesActifs').innerHTML = codes.map(function (c) {
+      return 'Code ' + echap(c.code) + ' appliqué<button data-code-retirer="' + echap(c.code) + '">retirer</button>';
+    }).join('<br>');
+  }
+
+  function appliquerCode(code) {
+    if (!etat.panier || !code) return;
+    api('/accounts/' + TOKEN + '/baskets/' + etat.panier.ident + '/coupons', { method: 'POST', body: JSON.stringify({ coupon_code: code }) })
+      .then(function () { return api('/accounts/' + TOKEN + '/baskets/' + etat.panier.ident); })
+      .then(function (b) { etat.panier = b; afficherPanier(); $('codeInput').value = ''; toast('Code promo appliqué'); })
+      .catch(function (e) { toast(e.message || 'Code promo invalide'); });
+  }
+
+  function retirerCode(code) {
+    api('/accounts/' + TOKEN + '/baskets/' + etat.panier.ident + '/coupons/remove', { method: 'POST', body: JSON.stringify({ coupon_code: code }) })
+      .then(function () { return api('/accounts/' + TOKEN + '/baskets/' + etat.panier.ident); })
+      .then(function (b) { etat.panier = b; afficherPanier(); })
+      .catch(function (e) { toast(e.message || 'Erreur'); });
   }
 
   function ouvrirPanier() {
@@ -265,6 +286,8 @@
   document.addEventListener('click', function (e) {
     var a = e.target.closest('[data-acheter]');
     if (a) { e.stopPropagation(); ajouter(a.dataset.acheter); return; }
+    var rc = e.target.closest('[data-code-retirer]');
+    if (rc) { retirerCode(rc.dataset.codeRetirer); return; }
     var r = e.target.closest('[data-retirer]');
     if (r) { retirer(r.dataset.retirer); return; }
     var c = e.target.closest('[data-pack]');
@@ -278,6 +301,7 @@
   $('ficheAcheter').addEventListener('click', function () { if (etat.courant) ajouter(etat.courant.id); });
   $('panierBtn').addEventListener('click', ouvrirPanier);
   $('payer').addEventListener('click', payer);
+  $('codeForm').addEventListener('submit', function (e) { e.preventDefault(); appliquerCode($('codeInput').value.trim()); });
 
   // ---------- Démarrage ----------
   chargerCatalogue().then(function () {
