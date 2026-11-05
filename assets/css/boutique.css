@@ -1,4 +1,5 @@
 /* Boutique PaladinsRP (Tebex Headless) */
+[hidden]{display:none!important}
 .boutique-tete{padding-bottom:clamp(40px,5vw,70px)}
 .packs-section{padding-top:clamp(40px,5vw,70px)}
 
