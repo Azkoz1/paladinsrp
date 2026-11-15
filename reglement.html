@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Règlement · PaladinsRP</title>
-<meta name="description" content="Le règlement PaladinsRP arrive bientôt.">
+<meta name="description" content="Le règlement complet de PaladinsRP : communauté, roleplay, santé et mort RP, conduite, illégal, services publics et sanctions.">
 <meta name="theme-color" content="#09070D">
 <meta property="og:title" content="Règlement · PaladinsRP">
-<meta property="og:description" content="Le règlement PaladinsRP arrive bientôt.">
+<meta property="og:description" content="Le règlement complet de PaladinsRP : communauté, roleplay, illégal, services publics et sanctions.">
 <meta property="og:image" content="assets/img/og.jpg">
 <meta property="og:type" content="website">
 <link rel="icon" type="image/png" href="assets/img/favicon.png">
@@ -15,6 +15,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600&family=Rajdhani:wght@600&family=Montserrat:wght@600&family=Barlow:wght@400;600&family=Share+Tech+Mono&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/style.css?v=2">
+<link rel="stylesheet" href="assets/css/reglement.css?v=3">
 </head>
 <body>
 <a class="saut" href="#contenu">Aller au contenu</a>
@@ -25,7 +26,561 @@
   <button class="burger" aria-expanded="false" aria-label="Ouvrir le menu">MENU</button>
 </header>
 <main id="contenu">
-<section class="bientot"><div class="c"><p class="sur">Bientôt disponible</p><h1>Règlement</h1><p class="lead">Le règlement arrive bientôt. Il sera publié ici et sur le Discord.</p><div class="actions"><a class="btn btn-p" href="https://discord.gg/paladinsrp" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M20.3 4.4A19.6 19.6 0 0 0 15.4 3l-.6 1.3a18.2 18.2 0 0 0-5.6 0L8.6 3a19.5 19.5 0 0 0-4.9 1.5C.6 9.1-.3 13.7.1 18.2a19.7 19.7 0 0 0 6 3l1.3-2.1a12.8 12.8 0 0 1-2-1l.5-.4a14 14 0 0 0 12.2 0l.5.4c-.6.4-1.3.7-2 1l1.3 2.1a19.6 19.6 0 0 0 6-3c.5-5.2-.8-9.8-3.6-13.8ZM8 15.5c-1.2 0-2.2-1.1-2.2-2.4S6.8 10.7 8 10.7s2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Zm8 0c-1.2 0-2.2-1.1-2.2-2.4s1-2.4 2.2-2.4 2.2 1.1 2.2 2.4-1 2.4-2.2 2.4Z"/></svg>Rejoindre le Discord</a></div></div></section>
+
+<section class="page-tete reg-tete"><div class="c">
+  <p class="sur">Les règles de la ville</p>
+  <h1>Règlement</h1>
+  <p class="lead">Accès libre, mentalité WL. Ces règles existent pour que chaque scène vaille le coup d'être jouée, des deux côtés de l'arme comme du comptoir.</p>
+  <div class="reg-version"><span class="chip violet">Version 1.0</span><span class="chip">Mis à jour le 15/11/2026</span><span class="chip">14 chapitres</span></div>
+</div></section>
+
+<section class="reg-essentiel" aria-label="L'essentiel"><div class="c">
+  <ol data-rv-groupe>
+    <li><b>Ton perso a peur</b><span>Face à une arme, au nombre ou à la douleur, il réagit comme un humain qui tient à sa vie.</span></li>
+    <li><b>La scène d'abord</b><span>On la joue jusqu'au bout, gagnée ou perdue. Les litiges se règlent après, par ticket.</span></li>
+    <li><b>Zéro info hors-jeu</b><span>Stream, Discord, menus du jeu : rien de tout ça n'existe pour ton personnage.</span></li>
+    <li><b>Le respect, toujours</b><span>Ton personnage peut être odieux. Toi, jamais envers les joueurs derrière l'écran.</span></li>
+    <li><b>Jeu propre</b><span>Pas de triche, pas d'exploit, pas de modification qui donne un avantage. Sinon, c'est la porte.</span></li>
+    <li><b>Le doute ? Demande</b><span>Une situation non prévue se tranche selon l'esprit du texte. Le ticket est là pour ça.</span></li>
+  </ol>
+</div></section>
+
+<div class="reg">
+  <aside class="reg-nav" aria-label="Sommaire du règlement">
+    <div class="reg-recherche">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" d="M10.5 18a7.5 7.5 0 1 1 0-15 7.5 7.5 0 0 1 0 15Zm5.3-2.2L21 21"/></svg>
+      <input id="reg-q" type="search" placeholder="Chercher une règle…" aria-label="Chercher dans le règlement" autocomplete="off">
+      <p id="reg-resultat" class="reg-resultat" aria-live="polite"></p>
+    </div>
+    <ol class="reg-sommaire">
+      <li><a href="#bases"><span>01</span>Les bases</a></li>
+      <li><a href="#lexique"><span>02</span>Lexique RP</a></li>
+      <li><a href="#discord"><span>03</span>Discord &amp; tickets</a></li>
+      <li><a href="#integrite"><span>04</span>Jeu propre</a></li>
+      <li><a href="#personnage"><span>05</span>Ton personnage</a></li>
+      <li><a href="#sante"><span>06</span>Santé &amp; mort RP</a></li>
+      <li><a href="#route"><span>07</span>Sur la route</a></li>
+      <li><a href="#illegal"><span>08</span>L'illégal</a></li>
+      <li><a href="#police"><span>09</span>Forces de l'ordre</a></li>
+      <li><a href="#secours"><span>10</span>Secours</a></li>
+      <li><a href="#entreprises"><span>11</span>Entreprises</a></li>
+      <li><a href="#equipe"><span>12</span>L'équipe</a></li>
+      <li><a href="#boutique"><span>13</span>Boutique &amp; créateurs</a></li>
+      <li><a href="#sanctions"><span>14</span>Sanctions</a></li>
+    </ol>
+  </aside>
+
+  <div class="reg-corps">
+  <p id="reg-vide" class="reg-vide" hidden>Aucune règle ne correspond à ta recherche. Essaie un autre mot, ou pose ta question en ticket sur le Discord.</p>
+
+  <section class="chap" id="bases">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Les bases</h2><p class="chap-intro">Ce qui vaut pour tout le monde, du premier jour au dernier.</p></header>
+    <ol class="regles">
+      <li><div><b>Acceptation</b><p>Te connecter au serveur revient à accepter ce règlement. Ne pas l'avoir lu n'excuse aucune infraction.</p></div></li>
+      <li><div><b>Un texte vivant</b><p>Les règles peuvent changer à tout moment, sans préavis. Relis cette page régulièrement : la version et la date figurent en haut.</p></div></li>
+      <li><div><b>Proposer une règle</b><p>Une idée pour améliorer le texte ? Envoie-la par ticket ou dans les suggestions du Discord, l'équipe l'étudie.</p></div></li>
+      <li><div><b>Tout laisse une trace</b><p>Chaque action en jeu est enregistrée. Une infraction peut donc être sanctionnée après coup, sur la base des journaux du serveur.</p></div></li>
+      <li><div><b>Venir pour s'amuser</b><p>PaladinsRP est fait pour prendre du plaisir ensemble. Ceux qui ne savent pas se tenir n'y ont pas leur place.</p></div></li>
+      <li><div><b>L'esprit avant la lettre</b><p>Quand une situation n'est pas prévue, l'équipe tranche selon la qualité de la scène et l'équité entre joueurs. Chercher une faille pour nuire aux autres est sanctionné comme l'infraction elle-même.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="lexique">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Lexique RP</h2><p class="chap-intro">Les notions utilisées dans tout le règlement, dans les tickets et dans les sanctions. À connaître avant ta première scène.</p></header>
+    <h3>Les bases</h3>
+    <dl class="lexique">
+      <div><dt>RP · HRP</dt><dd>Le RP (roleplay), c'est ce que vit ton personnage. Le HRP (hors roleplay), c'est toi, joueur, derrière l'écran. Les deux ne se mélangent jamais.</dd></div>
+      <div><dt>IG · IRL</dt><dd>En jeu (in game) ou dans la vraie vie (in real life).</dd></div>
+      <div><dt>Scène</dt><dd>Toute interaction RP entre joueurs, de la simple discussion au braquage.</dd></div>
+      <div><dt>Mass RP</dt><dd>Certains lieux sont toujours peuplés de témoins (hôpitaux, commissariats, parkings publics, entreprises). On y agit comme sous les yeux de tous.</dd></div>
+      <div><dt>Zone safe</dt><dd>Lieu où aucune action hostile n'est permise.</dd></div>
+      <div><dt>Point chaud</dt><dd>Lieu d'activité illégale : labo, récolte, fusillade en cours. Y être présent t'expose.</dd></div>
+      <div><dt>QG</dt><dd>Base d'un groupe illégal.</dd></div>
+      <div><dt>Dossier</dt><dd>Demande écrite, validée par l'équipe, avant une action lourde (descente, gros braquage, mort RP).</dd></div>
+    </dl>
+    <h3>Les comportements interdits</h3>
+    <dl class="lexique">
+      <div><dt>Freekill</dt><dd>Tuer un joueur sans raison RP valable ni scène préalable.</dd></div>
+      <div><dt>Freepunch</dt><dd>Frapper quelqu'un sans motif RP.</dd></div>
+      <div><dt>Freeshoot</dt><dd>Ouvrir le feu sans sommation ni raison, souvent sur une cible au hasard.</dd></div>
+      <div><dt>Carkill</dt><dd>Renverser volontairement un joueur avec un véhicule sans raison RP.</dd></div>
+      <div><dt>Spawnkill</dt><dd>S'en prendre à un joueur qui vient d'apparaître ou de se réveiller.</dd></div>
+      <div><dt>Métagaming</dt><dd>Utiliser en jeu une information obtenue hors du jeu : Discord, stream, message privé, menus du jeu.</dd></div>
+      <div><dt>Stream hack</dt><dd>Regarder le live d'un joueur pour savoir où il est ou ce qu'il prépare.</dd></div>
+      <div><dt>Powergaming</dt><dd>Faire une action impossible dans la vraie vie, ou s'attribuer des capacités irréalistes (« je te désarme d'un geste »).</dd></div>
+      <div><dt>Force RP</dt><dd>Imposer une action ou un rôle à un autre joueur sans lui laisser le choix de réagir.</dd></div>
+      <div><dt>Win RP</dt><dd>Refuser de perdre à tout prix, au mépris de la cohérence de la scène.</dd></div>
+      <div><dt>No Fear</dt><dd>Ne montrer aucune peur face à une menace crédible : arme braquée, infériorité numérique, encerclement.</dd></div>
+      <div><dt>No Pain</dt><dd>Ignorer la douleur d'un choc ou d'une blessure : courir après une balle, repartir comme si de rien n'était.</dd></div>
+      <div><dt>Refus de scène</dt><dd>Ignorer ou interrompre une scène RP en cours.</dd></div>
+      <div><dt>Retour zone · Revenge kill</dt><dd>Revenir sur une scène, ou se venger, après y avoir été mis hors de combat.</dd></div>
+      <div><dt>Raccourci RP</dt><dd>Tirer une conclusion hâtive sur un joueur ou un groupe à partir d'un seul indice (une voiture jaune ne fait pas un Vagos).</dd></div>
+      <div><dt>Déconnexion en scène</dt><dd>Quitter le jeu (ALT+F4) pendant une action RP pour éviter une perte ou une arrestation.</dd></div>
+      <div><dt>Copbait</dt><dd>Provoquer volontairement la police pour déclencher une poursuite.</dd></div>
+      <div><dt>Usebug · Dupli</dt><dd>Exploiter un bug du jeu, ou dupliquer des objets ou de l'argent.</dd></div>
+      <div><dt>Mentalité gunfight</dt><dd>Jouer l'illégal comme un jeu de tir : chercher le kill, le loot et la performance plutôt que la scène.</dd></div>
+      <div><dt>Free loot</dt><dd>Dépouiller un joueur sans scène, en quelques secondes, ou sans raison RP.</dd></div>
+    </dl>
+    <h3>Les principes à respecter</h3>
+    <dl class="lexique">
+      <div><dt>Fear RP</dt><dd>Avoir peur pour sa vie, comme dans la réalité : obéir sous la menace, ne pas jouer les héros.</dd></div>
+      <div><dt>Pain RP</dt><dd>Simuler la douleur et en subir les effets : boiter, se tenir la blessure, ne plus courir.</dd></div>
+      <div><dt>Cohérence RP</dt><dd>Garder la même logique de personnage du début à la fin d'une scène.</dd></div>
+      <div><dt>Sommation</dt><dd>Avertissement oral clair d'une menace imminente, obligatoire avant de tirer.</dd></div>
+      <div><dt>Négociation</dt><dd>Échange RP entre deux camps (braqueurs et police, ravisseurs et proches) pour trouver une issue sans violence.</dd></div>
+    </dl>
+    <h3>Conduite et combat</h3>
+    <dl class="lexique">
+      <div><dt>Conduite HRP</dt><dd>Rouler sans réalisme ni raison RP : contresens, vitesse absurde, drifts en ville.</dd></div>
+      <div><dt>Off-road</dt><dd>Un 4x4 ou un SUV ne grimpe ni une montagne ni un chemin impraticable.</dd></div>
+      <div><dt>Bunny hop</dt><dd>Sauter en boucle pour se déplacer plus vite.</dd></div>
+      <div><dt>Chicken run</dt><dd>Zigzaguer de façon irréaliste pour esquiver les tirs.</dd></div>
+      <div><dt>Strafe</dt><dd>Se décaler de gauche à droite en rafale pendant un échange de tirs. Interdit quand il est abusif.</dd></div>
+      <div><dt>Drive-by</dt><dd>Tirer depuis un véhicule en mouvement. Uniquement sur dossier.</dd></div>
+      <div><dt>PIT</dt><dd>Pousser l'arrière d'un véhicule pour le faire tourner et l'arrêter.</dd></div>
+    </dl>
+    <h3>Santé, mort et sanctions</h3>
+    <dl class="lexique">
+      <div><dt>K.O.</dt><dd>Personnage assommé : il ne voit, n'entend et ne dit rien.</dd></div>
+      <div><dt>Coma</dt><dd>Personnage inconscient après de graves blessures, en attente des secours.</dd></div>
+      <div><dt>Unité X</dt><dd>Réanimation par défaut quand aucun secours n'est disponible. Jamais pour fuir une scène.</dd></div>
+      <div><dt>Mort RP</dt><dd>Fin définitive d'un personnage, validée par l'équipe.</dd></div>
+      <div><dt>Wipe</dt><dd>Remise à zéro d'un personnage ou de ses biens.</dd></div>
+      <div><dt>Blacklist</dt><dd>Interdiction temporaire d'accéder à un rôle (chef de groupe, direction d'entreprise).</dd></div>
+      <div><dt>Lead · Co-lead</dt><dd>Le chef d'un groupe et son bras droit.</dd></div>
+      <div><dt>Scam</dt><dd>Arnaque lors d'une transaction, encadrée par le règlement.</dd></div>
+    </dl>
+  </section>
+
+  <section class="chap" id="discord">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Discord &amp; tickets</h2><p class="chap-intro">Le Discord est le prolongement de la ville. Les mêmes exigences de respect s'y appliquent.</p></header>
+    <ol class="regles">
+      <li><div><b>Haine et harcèlement</b><p>Harceler, intimider ou tenir des propos haineux mène au bannissement définitif.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Contenus interdits</b><p>Aucune image, vidéo ou lien illégal ou choquant.</p></div></li>
+      <li><div><b>Salons hors-jeu</b><p>Ce qui se lit dans un salon hors-jeu ne se répète pas et ne s'utilise pas en jeu. Les salons RP, eux, peuvent servir en ville.</p></div></li>
+      <li><div><b>Pas de Discord parallèle</b><p>Monter un Discord lié à PaladinsRP (groupe, entreprise) et y inviter des joueurs est assimilé à de la publicité. Seuls les Discord officiels sont admis.</p></div></li>
+      <li><div><b>Publicité</b><p>Faire la promotion d'un autre serveur : bannissement définitif.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Entraide</b><p>Le respect et l'aide entre membres sont encouragés.</p></div></li>
+      <li><div><b>Un ban vaut partout</b><p>Un bannissement définitif du Discord entraîne le même bannissement en jeu.</p></div></li>
+      <li><div><b>Chaque salon a son sujet</b><p>Débattre de ses scènes ou de sa sanction hors des salons prévus peut être sanctionné.</p></div></li>
+    </ol>
+    <h3>Les tickets</h3>
+    <ol class="regles">
+      <li><div><b>Réservés aux vrais besoins</b><p>Un ticket sert quand un membre de l'équipe est nécessaire. Une simple question passe d'abord par l'entraide, les tutoriels ou la communauté.</p></div></li>
+      <li><div><b>Abus</b><p>Tickets inutiles ou à répétition : sanctions pouvant aller jusqu'au mute Discord, temporaire ou définitif.</p></div></li>
+      <li><div><b>Un motif clair</b><p>Un ticket vide ou flou est fermé. Sans réponse de ta part pendant 24 heures, il se ferme automatiquement.</p></div></li>
+      <li><div><b>La bonne catégorie</b><p>Question &amp; aide, Bug &amp; souci technique, Signaler un joueur, Remboursement, Contester une sanction, Entreprise &amp; métier légal, Groupe &amp; activité illégale, Boutique &amp; VIP, Rejoindre le staff, Contacter les Fondateurs. Un ticket mal classé peut être fermé sans suite.</p></div></li>
+      <li><div><b>Un ticket par problème</b><p>Pas plusieurs tickets sur le même sujet dans des catégories différentes.</p></div></li>
+      <li><div><b>Pas de deuxième avis forcé</b><p>Après une décision officielle, rouvrir un ticket pour tomber sur un autre membre de l'équipe est interdit.</p></div></li>
+      <li><div><b>Politesse et patience</b><p>Les délais varient. Bonjour et merci sont de rigueur ; une insulte ou une menace envers l'équipe est sanctionnée immédiatement.</p></div></li>
+      <li><div><b>Gradation</b><p>En cas d'abus : avertissement la première fois, puis mute Discord temporaire, puis bannissement temporaire ou définitif.</p></div></li>
+      <li><div><b>Enregistrement obligatoire</b><p>Pour un problème de scène, un remboursement ou une plainte contre l'équipe, joins l'enregistrement complet de la scène, avec le son du jeu et ta voix (entrée et sortie audio). Sans lui, le ticket n'est pas traité.</p><span class="chip gold">REC complet</span></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="integrite">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Jeu propre</h2><p class="chap-intro">Personne ne gagne à jouer contre un tricheur. Tolérance nulle.</p></header>
+    <ol class="regles">
+      <li><div><b>Triche</b><p>Tout logiciel de triche : bannissement définitif, sans aucune possibilité de levée.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Exploits et duplication</b><p>Dupliquer, exploiter un bug ou un glitch pour obtenir armes, argent ou avantage : bannissement définitif. Signaler un bug à l'équipe peut au contraire être récompensé.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Animations</b><p>Une emote doit rester réaliste et cohérente. Spam, moquerie ou détournement sont sanctionnés.</p></div></li>
+      <li><div><b>Modifications du jeu</b><p>Toute modification qui procure un avantage est lourdement sanctionnée. Chacune des suivantes entraîne un bannissement :</p><ul><li>effets visuels : traceurs de balles, effets de kill, de touche ou de sang ;</li><li>interface : réticule autre que celui d'origine, suppression d'éléments du décor, nuit éclaircie, skins d'armes irréalistes, champ de vision modifié, fichiers RPF modifiés ;</li><li>logiciels tiers, à l'exception de ReShade.</li></ul></div></li>
+      <li><div><b>Format d'écran</b><p>16:9 et 16:10 uniquement. Le 21:9, le 32:9 et tout autre format sont interdits.</p></div></li>
+      <li><div><b>Captures d'écran</b><p>L'équipe ou un système de détection automatique peut capturer ton écran à tout moment ; ces captures servent de base aux sanctions.</p></div></li>
+      <li><div><b>Radios externes</b><p>Discord, TeamSpeak ou Mumble ne servent jamais à coordonner une scène. Faire circuler des informations RP par ces canaux est lourdement sanctionné.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="personnage">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Ton personnage</h2><p class="chap-intro">Le cœur du serveur. Une erreur sans impact sur la scène est traitée avec indulgence ; le reste ne l'est pas.</p></header>
+    <div class="principes bloc" data-rv-groupe>
+      <div><b>Immersion</b><span>Ton personnage ne sait que ce qu'il a vu, entendu ou appris en jeu.</span></div>
+      <div><b>Instinct de survie</b><span>Il tient à sa vie : une arme braquée sur lui change tout (Fear RP).</span></div>
+      <div><b>Douleur</b><span>Un choc, une chute, une balle : il le ressent et le montre (Pain RP).</span></div>
+      <div><b>Continuité</b><span>Il garde la même logique du début à la fin d'une scène.</span></div>
+    </div>
+    <ol class="regles">
+      <li><div><b>Respect</b><p>La politesse est la base. Les insultes entre personnages sont tolérées dans une certaine mesure ; propos racistes et harcèlement sont interdits.</p></div></li>
+      <li><div><b>Pas de déduction hors-jeu</b><p>Un visage masqué ne se reconnaît ni à la voix, ni à l'accent, ni en comptant qui possède telle arme, telle voiture ou telle tenue.</p></div></li>
+      <li><div><b>Tenue correcte</b><p>Pas de tenue dérangeante : bras ou jambes invisibles, personnage par défaut.</p></div></li>
+      <li><div><b>Preuves en jeu</b><p>Photo, vidéo ou enregistrement RP (plainte, dossier de mort RP) se font uniquement avec un téléphone ou une caméra du jeu. Filmer son écran pour s'en servir en RP est sanctionné.</p></div></li>
+      <li><div><b>Nom du personnage</b><p>Pas de jeu de mots, pas d'insulte, pas de nom d'une personne réelle (politique, célébrité, légende).</p></div></li>
+      <li><div><b>Jouer chaque scène</b><p>Refuser ou interrompre une scène est interdit, quel que soit le contexte. Si un problème survient, la scène se termine quand même ; le litige se règle ensuite.</p></div></li>
+      <li><div><b>Lieux toujours fréquentés</b><p>Commissariats, hôpitaux, parkings publics et entreprises sont réputés pleins de monde (Mass RP). On n'y vole pas de véhicule et on n'y commet aucune action violente.</p></div></li>
+      <li><div><b>Provoquer la police</b><p>Chercher volontairement une poursuite avec les forces de l'ordre est interdit.</p></div></li>
+    </ol>
+    <h3>Vocal et discussion</h3>
+    <ol class="regles">
+      <li><div><b>Vocabulaire</b><p>Aucun terme hors-jeu en ville. Les détours pour évoquer l'équipe, le serveur ou les enregistrements (« les petits oiseaux », « là-haut », « la caméra »…) sont tout aussi interdits.</p></div></li>
+      <li><div><b>Voix</b><p>Modificateur de voix et soundboard interdits, sauf autorisation exceptionnelle de la modération.</p></div></li>
+    </ol>
+    <h3>Déconnexion et inactivité</h3>
+    <ol class="regles">
+      <li><div><b>Jamais en pleine scène</b><p>ALT+F4 pendant une action RP est interdit. Tu ne quittes qu'une fois toutes tes scènes terminées.</p></div></li>
+      <li><div><b>Absence prolongée</b><p>Rester inactif dans une zone convoitée est lourdement sanctionné. Seuls sont admis la zone AFK, ton logement et ta chambre de motel.</p></div></li>
+    </ol>
+    <h3>Le report en jeu</h3>
+    <ol class="regles">
+      <li><div><b>Urgences seulement</b><p>Le report fait venir l'équipe immédiatement : tricheur, joueur qui détruit les scènes, personnage bloqué, bug du serveur.</p></div></li>
+      <li><div><b>Abus</b><p>Un report qui n'a rien d'urgent est sanctionné.</p></div></li>
+      <li><div><b>Ce qui ne se reporte pas</b><ul><li>Le coma : attends les secours ou l'Unité X.</li><li>Un véhicule hors d'usage : kit de réparation, fourrière ou mécano.</li><li>Un déplacement : taxi ou solution RP.</li><li>Une sanction à contester : ticket « Contester une sanction ».</li><li>Une question RP : cherche la réponse en jeu.</li></ul></div></li>
+      <li><div><b>Un motif court et clair</b><p>Un report vide ou trop vague peut être ignoré, et sanctionné s'il se répète.</p></div></li>
+      <li><div><b>Un seul par groupe</b><p>Une situation, un report, même à plusieurs.</p></div></li>
+      <li><div><b>Pas d'insistance</b><p>Reporter plusieurs fois la même situation, ou recommencer pour obtenir l'avis d'un autre membre de l'équipe, est interdit.</p></div></li>
+      <li><div><b>Courtoisie</b><p>Insultes, menaces ou pression dans un report sont sévèrement sanctionnées.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="sante">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Santé &amp; mort RP</h2><p class="chap-intro">Une blessure a des conséquences. Une mort RP en a de définitives.</p></header>
+    <div class="tableau bloc"><table>
+      <thead><tr><th>Ce que tu as subi</th><th>État</th><th>Ce dont tu te souviens</th></tr></thead>
+      <tbody>
+        <tr><td>Coups de poing</td><td>Affaibli</td><td>Toute la scène</td></tr>
+        <tr><td>Objet contondant</td><td>Choc important, impossible de repartir en courant</td><td>Trous de mémoire sur l'action et son origine</td></tr>
+        <tr><td>Couteau</td><td>Blessure importante</td><td>Le conflit, pas l'identité de l'agresseur</td></tr>
+        <tr><td>Arme à feu</td><td>Blessure très grave, hôpital obligatoire</td><td>Rien de la scène</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tableau-note bloc">Oublier volontairement une scène sans y avoir été contraint par une blessure est interdit.</p>
+    <ol class="regles">
+      <li><div><b>K.O.</b><p>Tu ne parles pas (quelques grognements au plus), tu ne vois et n'entends rien. Au réveil, Pain RP et aucune vengeance immédiate.</p></div></li>
+      <li><div><b>Coma</b><p>Aucune parole. Au réveil, seuls des souvenirs flous subsistent (une couleur de vêtement, par exemple).</p></div></li>
+      <li><div><b>Blessure par balle</b><p>Passage à l'hôpital obligatoire, puis aucune fusillade ni activité illégale pendant au moins <strong>20 minutes</strong>.</p><span class="chip gold">20 min</span></div></li>
+      <li><div><b>Escorte vers l'hôpital</b><p>Après une scène avec la police, tu ne te débarrasses ni de tes armes ni de tes objets.</p></div></li>
+      <li><div><b>Unité X</b><p>Jamais pour échapper à une scène en cours. Attends qu'elle soit entièrement terminée.</p></div></li>
+      <li><div><b>Après les soins</b><p>Démarche boiteuse, pas de course : la blessure se joue.</p></div></li>
+      <li><div><b>Scènes avec les secours</b><p>Elles se jouent jusqu'au bout, avec sérieux.</p></div></li>
+      <li><div><b>Abus de coma</b><p>Enchaîner comas ou Unité X dans la même journée peut entraîner une mort RP.</p></div></li>
+      <li><div><b>Antidouleurs</b><p>Interdits pendant une scène, fusillade ou autre.</p></div></li>
+    </ol>
+    <h3>La mort RP</h3>
+    <ol class="regles">
+      <li><div><b>Conséquence</b><p>Le personnage repart de zéro. Seuls les achats boutique sont conservés : véhicules, animaux, VIP en cours, logement boutique.</p></div></li>
+      <li><div><b>Pas de copie</b><p>Recréer à l'identique le personnage effacé est interdit.</p></div></li>
+      <li><div><b>Aucun lien</b><p>Le nouveau personnage n'a aucun lien direct avec l'ancien (frère, cousin…) permettant de récupérer informations ou biens.</p></div></li>
+      <li><div><b>Pas de vengeance</b><p>Il n'approche pas, et ne se venge pas, de ceux qui ont causé la mort de l'ancien.</p></div></li>
+      <li><div><b>Pas de transfert</b><p>Donner ses biens à un proche avant une mort RP ou une suppression : wipe des deux comptes et bannissement.</p><span class="chip red">Wipe + ban</span></div></li>
+      <li><div><b>Pas une échappatoire</b><p>La mort RP ne sert pas à fuir dettes, conflits ou responsabilités.</p></div></li>
+      <li><div><b>Fréquence</b><p>Pas de demandes de wipe ou de mort RP à répétition (chaque semaine, plusieurs fois par mois).</p></div></li>
+      <li><div><b>Demander la mort RP d'un citoyen</b><p>Ticket détaillé avec un maximum de preuves : vidéos, captures, écrits.</p></div></li>
+      <li><div><b>No Fear = wipe</b><p>Ignorer une menace crédible, refuser de coopérer face à une arme, provoquer seul un groupe bien plus nombreux sans raison : le personnage est wipe. D'autres sanctions (avertissement, bannissement, prison fédérale, mort RP) peuvent s'y ajouter, jamais le remplacer.</p><span class="chip red">Wipe</span></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="route">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Sur la route</h2><p class="chap-intro">Un manquement est puni d'un bannissement temporaire ou définitif selon sa gravité.</p></header>
+    <ol class="regles">
+      <li><div><b>Sens de circulation</b><p>Respecté en permanence ; le contresens n'est admis que pendant une course-poursuite.</p></div></li>
+      <li><div><b>Vitesse</b><p>Réaliste en ville, près des lieux très fréquentés (motel, hôpital, commissariat, gouvernement) et dans les zones piétonnes ou résidentielles.</p></div></li>
+      <li><div><b>Accident</b><p>Même seul et sans témoin, tu joues ta douleur.</p></div></li>
+      <li><div><b>Le bon véhicule</b><ul><li>Camions : grands axes uniquement, jamais en ville.</li><li>Formule 1 : sur circuit, transportée par remorque.</li><li>Supersportives : interdites en montagne, allure très réduite sur la terre.</li></ul></div></li>
+      <li><div><b>Stationnement</b><p>Pas au milieu de la route, ni sur un trottoir, ni devant un hôpital ou l'entrée d'un bâtiment.</p></div></li>
+      <li><div><b>Véhicule endommagé</b><p>Qui fume, sans capot ni portière, ou tordu : il ne roule plus. Mécano, fourrière ou kit de réparation.</p></div></li>
+      <li><div><b>Places</b><p>Jamais plus de passagers que de sièges ; un corps porté compte comme une place, le coffre peut en offrir une de plus (4 places : 3 joueurs et 1 corps). Pas de corps sur une moto. Le conducteur ne porte jamais de corps : c'est un passager qui s'en charge. Pour déposer un corps : <code>/me dépose le corps sur la banquette</code>.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="illegal">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>L'illégal</h2><p class="chap-intro">Le crime fait vivre la ville quand il est joué avec intelligence. Il l'abîme quand il devient un jeu de tir.</p></header>
+    <div class="tableau bloc"><table>
+      <thead><tr><th>Statut</th><th>Membres</th></tr></thead>
+      <tbody>
+        <tr><td>Groupe indépendant</td><td>6 au maximum</td></tr>
+        <tr><td>Groupe officiel</td><td>15 ou 20 au maximum selon le type (voir ci-dessous)</td></tr>
+      </tbody>
+    </table></div>
+    <h3>Types de groupes officiels</h3>
+    <ol class="regles">
+      <li><div><b>Créer son groupe</b><p>Tout groupe commence en indépendant, avec <strong>6 membres au minimum</strong>. C'est seulement ensuite qu'il peut demander à devenir officiel.</p><span class="chip gold">6 minimum</span></div></li>
+      <li><div><b>Gang</b><p>Un gang officiel compte <strong>15 membres au maximum</strong>.</p><span class="chip gold">15 maximum</span></div></li>
+      <li><div><b>Cartel, mafia, organisation, famille, bikers</b><p>Ces groupes officiels comptent <strong>20 membres au maximum</strong>.</p><span class="chip gold">20 maximum</span></div></li>
+    </ol>
+    <h3>Règles générales</h3>
+    <ol class="regles">
+      <li><div><b>Sang-froid</b><p>Haine, insultes ou manque de respect hors RP : bannissement définitif possible, en jeu et sur le Discord. Une défaite se termine calmement, puis se signale. Aucun remboursement pour qui n'a pas respecté cette règle.</p></div></li>
+      <li><div><b>Torture</b><p>Uniquement avec l'accord hors-jeu préalable de l'équipe et du joueur concerné.</p></div></li>
+      <li><div><b>Assauts sensibles</b><p>Commissariat, hôpital, lieu public fréquenté ou quartier chaud : validation préalable par ticket.</p></div></li>
+      <li><div><b>Une entreprise par groupe</b><p>Un groupe illégal ne détient qu'une seule entreprise.</p></div></li>
+      <li><div><b>Pas d'avantage tactique</b><p>Objets, props ou emotes pour bloquer une route ou se cacher (blocs de béton, poubelle) : interdit.</p></div></li>
+      <li><div><b>Cohérence des groupes</b><p>Gangs de rue en lowriders ou vieilles américaines ; mafias et cartels en SUV ou 4x4 sobres. Passer d'un groupe à un autre sans logique est interdit.</p></div></li>
+      <li><div><b>Argent sale</b><p>L'argent n'est pas traçable, mais plus de <strong>100 000 $</strong> en liquide sur toi ou dans tes biens peuvent être considérés comme illégaux et saisis.</p></div></li>
+      <li><div><b>Pas de repli éclair</b><p>Pendant une interaction, interdit de filer se réfugier dans un quartier, un QG ou une zone Mass RP. Attends au moins <strong>10 minutes</strong> avant d'y retourner.</p></div></li>
+      <li><div><b>Pas d'alliance</b><p>Sanction : bannissement et avertissement de groupe. Restent permis : le commerce, la récolte et le traitement pour des groupes qui travaillent sur le même labo, et le contrat ponctuel où un seul groupe agit. Interdits : s'allier pour attaquer un convoi vers la prison fédérale sans accord de l'équipe, farmer de la drogue à plusieurs groupes.</p></div></li>
+      <li><div><b>Descente dans un QG</b><p>Sur dossier validé par ticket, avec une justification claire.</p></div></li>
+      <li><div><b>Stockage</b><p>Un groupe officiel garde armes, drogue et argent dans ses coffres. Les déplacer ailleurs pour éviter une saisie est sanctionné.</p></div></li>
+      <li><div><b>Statut assumé</b><p>Un groupe officiel ne se fait pas passer pour indépendant, ni l'inverse.</p></div></li>
+      <li><div><b>Menus du jeu</b><p>Inventaire et menu de groupe ne fournissent aucune information utilisable en RP.</p></div></li>
+      <li><div><b>Représailles</b><p>Après une défaite en fusillade contre un groupe, attends <strong>12 heures</strong> avant de l'affronter à nouveau.</p><span class="chip gold">12 h</span></div></li>
+      <li><div><b>Fours</b><p>Seuls les indépendants affiliés à un gang officiel ouvrent un four ; un gang compte 3 affiliés au plus, donc 3 fours. Pas de four près du domicile ou du quartier de son propriétaire (un gang officiel peut vendre dans son quartier), et un emplacement crédible hors Mass RP. Un drive-by d'un gang officiel rival ou une descente en flagrant délit ferme le four 24 heures. Les règles d'arnaque s'y appliquent.</p></div></li>
+      <li><div><b>Pas de mentalité gunfight</b><p>Expressions de jeu de tir (« ez », « il a dépop », « 1 mort, 2 morts »), tir sans sommation, strafe abusif, prise de position sans contexte, loot sans justification : interdits. Gants bleus, bandages ou plâtres permanents aussi, sauf blessure RP.</p></div></li>
+    </ol>
+    <h3>Groupes indépendants</h3>
+    <ol class="regles">
+      <li><div><b>Création</b><p>Depuis le menu des groupes en jeu, avec <strong>6 membres au minimum</strong> : nom fictif et correct, objectif clair. Un groupe indépendant compte <strong>6 membres au maximum</strong>. Le menu donne accès au coffre (aucun remboursement en cas de vol, vol abusif sévèrement sanctionné), aux propriétés, au garage et à la garde-robe.</p></div></li>
+      <li><div><b>Devenir officiel</b><p>Par dossier en ticket, ou repéré pour la qualité de son RP par les Game Masters ou les groupes partenaires.</p></div></li>
+      <li><div><b>Sanctions</b><p>Les mêmes que pour les officiels. Manquements graves ou répétés : dissolution, wipe des membres, blacklist du chef, avertissements, bannissement.</p></div></li>
+      <li><div><b>Parrainage</b><p>Lien commercial avec un groupe officiel, pas une alliance armée. Chaque action rapporte des points de territoire au parrain, et le parrain qui tient une zone offre un meilleur prix de vente. Il peut solliciter son filleul pour un labo, une récolte, un événement ou un braquage.</p></div></li>
+      <li><div><b>Mort RP par le chef</b><p>Possible pour trahison, vol ou faute grave, sur dossier argumenté étudié par l'équipe.</p></div></li>
+      <li><div><b>Face à un officiel</b><p>Fear RP de rigueur. Aucune plainte n'est recevable si le groupe officiel n'affichait pas clairement son statut (ordres, armes ou véhicules réservés, tenue reconnaissable).</p></div></li>
+    </ol>
+    <h3>Groupes officiels</h3>
+    <ol class="regles">
+      <li><div><b>Candidature</b><p>Ticket et dossier Google Docs ou Canva : nom, histoire, nationalité, expérience RP des membres, liste des membres (nom RP, Discord), 5 grades au plus, tenues, QG (mapping si besoin), couleurs des véhicules en RGB.</p></div></li>
+      <li><div><b>Patience</b><p>Les relances sur l'avancement d'un dossier sont ignorées.</p></div></li>
+      <li><div><b>Engagement total</b><p>Pas de projet parallèle sur un autre serveur.</p></div></li>
+      <li><div><b>Un seul chef</b><p>Un groupe officiel n'a qu'un chef.</p></div></li>
+      <li><div><b>Chef responsable</b><p>Un membre qui triche, duplique ou enfreint gravement les règles est exclu sur-le-champ et signalé à l'équipe. Sinon, le chef en répond et le groupe est supprimé.</p></div></li>
+      <li><div><b>Mort RP par le chef</b><p>Pour un membre incompatible, via ticket et selon la procédure de mort RP. La décision du chef seule ne vaut pas validation.</p></div></li>
+      <li><div><b>Business d'armes</b><p>Le Game Master propose les business aux groupes méritants, avec prix unitaires, quantités hebdomadaires maximales et rendez-vous de livraison ; l'acheteur revend avec la marge qu'il veut. Le groupe GM est neutre, intouchable (Fear RP) et seul fournisseur d'armes de la ville. La livraison du GM ne se braque pas ; le convoi de l'acheteur, après la transaction, peut l'être.</p></div></li>
+      <li><div><b>Reprendre un business</b><p>Un groupe officiel contacte le GM, qui organise une mission entre les deux groupes ; le vainqueur garde ou prend le business. Un business fraîchement acquis est protégé 2 semaines.</p></div></li>
+      <li><div><b>Vente d'armes</b><p>Les organisations vendent uniquement aux groupes officiels. Les gangs privilégient les officiels et ne vendent aux indépendants que les armes autorisées pour eux.</p></div></li>
+    </ol>
+    <h3>Armes</h3>
+    <ol class="regles">
+      <li><div><b>Trois sommations</b><p>Pas de tir à vue. Avant de tirer : <strong>3 sommations orales claires</strong>, espacées d'au moins <strong>10 secondes</strong>.</p><span class="chip gold">3 × 10 s</span></div></li>
+      <li><div><b>Exception du No Fear</b><p>Face à un No Fear avéré (un braqué qui court vers son véhicule et y monte), les sommations ne sont plus exigées. Prudence : une erreur est sanctionnée côté tireur.</p></div></li>
+      <li><div><b>Sommation</b><p>C'est un avertissement verbal d'une menace imminente, rien d'autre.</p></div></li>
+      <li><div><b>Interdits en combat</b><p>Drive-by sans dossier validé et strafe abusif : lourdes sanctions.</p></div></li>
+    </ol>
+    <h3>Véhicules et poursuites</h3>
+    <ol class="regles">
+      <li><div><b>Vol de véhicule</b><p>Possible hors zones protégées ; sous la menace, la victime obéit. Elle déverrouille et laisse partir le voleur, mais aucune clé n'est transférée.</p></div></li>
+      <li><div><b>Reconnaissance</b><p>Voix, véhicule ou tenue ne permettent pas d'identifier un joueur ou un groupe. Un convoi de plusieurs véhicules peut en revanche paraître suspect et justifier une intervention.</p></div></li>
+      <li><div><b>Une moto par convoi</b><p>En éclaireur uniquement, sans évacuer personne.</p></div></li>
+      <li><div><b>Moto, bateau, avion</b><p>Interdits pour vendre de la drogue ou braquer, sauf dossier.</p></div></li>
+      <li><div><b>Groupes de bikers</b><p>Moto autorisée en illégal si : aucun passage impraticable pour une voiture (montagne, escaliers, ruelle étroite) ; un motard qui chute arrête sa poursuite ; pas plus de motards que de véhicules de police (4 motos et 2 voitures : 2 motards au plus).</p></div></li>
+      <li><div><b>Tirs depuis un véhicule</b><p>Interdits en course-poursuite, conducteur comme passager ; drive-by uniquement sur dossier validé à l'avance.</p></div></li>
+      <li><div><b>Manœuvres de contact</b><p>Plan mule, récupération et PIT : après <strong>5 minutes</strong> de poursuite et sous <strong>100 km/h</strong>.</p></div></li>
+      <li><div><b>Hélicoptère</b><p>Un seul par groupe, en altitude, pour observer : ni atterrissage sur la scène, ni dépose de joueurs, ni tir.</p></div></li>
+    </ol>
+    <h3>Otages et fouilles</h3>
+    <ol class="regles">
+      <li><div><b>Cibles interdites</b><p>Les travailleurs légaux en activité (récolte, traitement, vente, transport) et les nouveaux joueurs (près du spawn ou du motel, à l'auto-école, en scooter ou vélo de location).</p></div></li>
+      <li><div><b>Traitement</b><p>Ni insultes, ni coups, ni dépouille. Chaque otage a sa scène et n'est jamais laissé seul sans interaction.</p></div></li>
+      <li><div><b>Obéissance</b><p>Un otage obéit, sous peine de mort RP. Il peut refuser un ordre dégradant sans que ce soit du No Fear.</p></div></li>
+      <li><div><b>Nombre d'otages</b><p>Limité par type de braquage (voir le tableau). Au-delà, dossier obligatoire.</p></div></li>
+      <li><div><b>Otage coopératif</b><p>Jamais plongé dans le coma.</p></div></li>
+      <li><div><b>Où garder les otages</b><p>Petits braquages (Fleeca, bijouterie) : rues secondaires, stations-service, supérettes. Gros coups : périmètre plus large, toujours hors Mass RP.</p></div></li>
+      <li><div><b>Qui peut être dépouillé</b><p>Seulement un joueur en pleine action illégale : arme en main (hors holster et mousquet), sur un point chaud (labo, récolte, fusillade) ou sur le territoire d'un groupe ennemi. Jamais sans raison RP.</p></div></li>
+      <li><div><b>Sans dépouille</b><p>Une prise d'otage sans fouille (bijouterie par exemple) se fait avec la garantie donnée au captif qu'il ne perdra rien.</p></div></li>
+      <li><div><b>Plafond : la moitié</b><p>Au plus <strong>50 %</strong> de ce que possède un joueur coopératif, véhicules compris. Deux pistolets, 50 pochons et 50 000 $ sale deviennent un pistolet, 25 pochons et 25 000 $ ; un seul pistolet se prend seul. Les civils ne se dépouillent pas. Un groupe officiel qui tient un business peut saisir 100 % des biens liés à ce business.</p><span class="chip gold">50 %</span></div></li>
+      <li><div><b>Pas de loot sur place</b><p>Sur un point chaud, on déplace d'abord le joueur pour jouer la scène. Le loot express est sanctionné.</p></div></li>
+      <li><div><b>Lieux interdits</b><p>Pas d'otage ramené sur ton territoire (quartier, QG, villa), ni pris en zone Mass RP, au spawn, dans une villa, un quartier, une entreprise ou un parking.</p></div></li>
+      <li><div><b>Commande d'otage</b><p>Uniquement sur une cible mains levées et de dos. De face, en rush ou par touche programmée : interdit.</p></div></li>
+      <li><div><b>Fear RP du braqué</b><p>Désarmé, en forte infériorité (5 contre 15), sous-armé (pistolet contre automatique) ou encerclé : tu coopères, sinon mort RP.</p></div></li>
+      <li><div><b>Pas de complicité</b><p>Un otage ne sert jamais à mettre le butin à l'abri.</p></div></li>
+      <li><div><b>Pas de retrait forcé</b><p>Interdit d'obliger un braqué à retirer à un distributeur ou à faire un virement.</p></div></li>
+    </ol>
+    <h3>Braquages</h3>
+    <div class="tableau bloc"><table>
+      <thead><tr><th>Cible</th><th>Max</th><th>Otages</th><th>Braqueurs</th><th>Véhicules</th><th>Attente</th></tr></thead>
+      <tbody>
+        <tr><td>Supérette</td><td>2 par jour</td><td>Le caissier</td><td>1 à 3</td><td>1</td><td>10 min ou police</td></tr>
+        <tr><td>Distributeur (ATM)</td><td>3 par jour</td><td>-</td><td>1 à 2</td><td>1</td><td>5 min par ATM ou police</td></tr>
+        <tr><td>Conteneur</td><td>10 par jour</td><td>-</td><td>1 à 2</td><td>1</td><td>5 min ou police</td></tr>
+        <tr><td>Cambriolage</td><td>2 par jour et par joueur</td><td>-</td><td>1 à 3</td><td>1</td><td>10 min ou police</td></tr>
+        <tr><td>Fleeca</td><td>1 par jour et par groupe</td><td>2 à 3 (banquier compris)</td><td>4 à 8</td><td>2</td><td>10 min ou police</td></tr>
+        <tr><td>Fourgon Gruppe 6</td><td>1 par jour et par groupe</td><td>-</td><td>-</td><td>-</td><td>15 min ou police, puis négociation</td></tr>
+        <tr><td>Bijouterie</td><td>1 par jour et par groupe</td><td>3 à 5</td><td>6 à 10</td><td>4</td><td>20 min ou police, puis négociation</td></tr>
+        <tr><td>Pacific, yacht, entreprise, Humane Labs, station pétrolière</td><td>Sur dossier</td><td>6 à 10</td><td>12 à 20</td><td>6</td><td>Arrivée de la police</td></tr>
+      </tbody>
+    </table></div>
+    <p class="tableau-note bloc">Indépendants : 6 braqueurs au plus pour la Fleeca et la bijouterie. Seuls les véhicules autorisés en illégal sont utilisables.</p>
+    <ol class="regles">
+      <li><div><b>Cambriolage</b><p>Une maison pillée ne peut l'être de nouveau qu'après 72 heures. Armes légères autorisées.</p></div></li>
+      <li><div><b>Bijouterie</b><p>Pas sur place plus de 5 minutes avant le lancement, sous peine d'avertissement de groupe. Si elle n'est pas disponible, les otages sont libérés aussitôt.</p></div></li>
+      <li><div><b>Gros coups</b><p>Réservés aux groupes officiels, sauf le braquage d'une petite entreprise, ouvert aux indépendants. Dossier : type et date, objectif et histoire RP, lieu, équipe (pseudos et ID), équipement, attitude prévue face à la police. Toute dérogation (effectifs, plus de 10 otages) doit être expressément accordée.</p></div></li>
+      <li><div><b>Pas de départ anticipé</b><p>On attend les forces de l'ordre. Si personne n'arrive avant la fin du délai, le départ est libre.</p></div></li>
+      <li><div><b>Pas de contre-braquage</b><p>On ne braque pas un joueur en train de braquer.</p></div></li>
+      <li><div><b>Rançon à la police</b><p>50 000 $ au plus par otage, seulement pour une prise d'otage sans autre gain (pas pour une Fleeca ou une bijouterie).</p></div></li>
+      <li><div><b>Rançon entre groupes</b><p>30 000 $ par otage, 50 000 $ pour un chef ou son second. En cas de refus, l'otage peut subir une mort RP. Tout se négocie, à la baisse ou contre un autre accord.</p></div></li>
+      <li><div><b>Récupérer ses pertes</b><p>Un groupe officiel volé peut exiger la restitution de ses biens (armes, drogue, argent sale) sous 24 heures contre la vie de l'otage, sur ticket validé avec preuves solides. Refus : mort RP de l'otage.</p></div></li>
+      <li><div><b>Libérer par la force</b><p>Tirer sur les ravisseurs expose l'otage à une mort RP. Restent la négociation, la demande d'informations ou une requête RP cohérente.</p></div></li>
+      <li><div><b>Ceux qui paient</b><p>Les joueurs venus payer une rançon ne sont ni braqués ni dépouillés : c'est soit 50 % de leurs biens, soit la rançon.</p></div></li>
+      <li><div><b>Médecins illégaux</b><p>On ne les braque pas et on ne les attaque pas directement. Une scène à leur sortie, une poursuite ou une provocation verbale restent possibles, sauf si l'un des tiens est leur otage.</p></div></li>
+      <li><div><b>Défendre son domicile</b><p>Le propriétaire peut faire fuir un cambrioleur avec une arme, de façon proportionnée. Cambrioleur maîtrisé, mains en l'air : il appelle la police.</p></div></li>
+    </ol>
+    <h3>Drogue et transactions</h3>
+    <ol class="regles">
+      <li><div><b>Où vendre</b><p>Jamais en zone Mass RP, sur un parking public, dans un quartier, une zone protégée ou une villa. Les transactions illégales suivent les mêmes interdits.</p></div></li>
+      <li><div><b>À pied</b><p>La vente de drogue se fait à pied.</p></div></li>
+      <li><div><b>Points de vente</b><p>Un point de drogue ne se cède pas en dessous de 100 000 $.</p></div></li>
+      <li><div><b>Événements encadrés</b><p>Aucun braquage ni ciblage d'un groupe pendant une scène GM ou un événement de l'équipe, ni dans les 20 minutes qui suivent.</p></div></li>
+      <li><div><b>Convois</b><p>Pas de free loot sur une scène de convoi : on sécurise la zone, puis on récupère le butin en jouant, sans vider des sommes énormes en quelques secondes.</p></div></li>
+      <li><div><b>Transactions exposées</b><p>Une transaction peut être attaquée : place des guetteurs. Le guet-apens n'est permis que si le groupe visé vend un business d'armes qui vous appartient ou si vous êtes en guerre avec lui.</p></div></li>
+      <li><div><b>Fair-play</b><p>Les nouveaux groupes, officiels ou indépendants, méritent qu'on leur laisse une chance, par exemple en échangeant des services (informations, drogue, armes).</p></div></li>
+      <li><div><b>Arnaques</b><p>Possibles seulement si l'un des deux groupes compte moins de 4 personnes ; à partir de 4, pas d'arnaque. On ne loot pas l'objet prévu dans l'échange. Un arnaqueur qui ne rembourse pas risque la mort RP.</p></div></li>
+      <li><div><b>Argent sale</b><p>Toute transaction illégale se paie en argent sale.</p></div></li>
+      <li><div><b>Ventes honnêtes</b><p>Truquer les performances, options ou l'état d'un véhicule vendu est interdit.</p></div></li>
+      <li><div><b>Plantations</b><p>Interdites dans les lieux inaccessibles aux autres ou à la police (intérieurs privés, entreprise, yacht, plateforme pétrolière, île privée, zone cadenassée, accès par bug). La weed dans son jardin est permise, sous réserve d'une descente avec fouille du coffre.</p></div></li>
+    </ol>
+    <h3>Laboratoires</h3>
+    <ol class="regles">
+      <li><div><b>Le gérant</b><p>Il transmet les clés et contrôle les accès. Clé perdue ou stock disparu ne sont pas remboursés. Le labo n'est pas une zone Mass RP : il se défend (rondes, guetteurs).</p></div></li>
+      <li><div><b>Horaires d'ouverture</b><p>Ouvert automatiquement pour traiter sa drogue du lundi au vendredi de 21 h à 2 h, le samedi de 17 h à 2 h, le dimanche de 17 h à minuit. En dehors, seuls les détenteurs de clé entrent.</p></div></li>
+      <li><div><b>Intrusion</b><p>Première fois dans le mois : avertissement, pression, dépouille possible à 50 % (100 % de la drogue d'un groupe officiel). Deuxième fois dans le mois : mort RP possible, sur dossier (photo en jeu du joueur mains levées à chaque intrusion, dates, heures, vidéos des deux scènes, ID).</p></div></li>
+      <li><div><b>Préparer une attaque</b><p>Dossier Google Docs validé, preuves photo ou vidéo en jeu : groupe attaquant, labo et date, objectif, équipe de 20 joueurs au plus, mode d'action. Preuves attendues : déclaration de guerre, interception d'un véhicule de matières premières, localisation précise, capture de membres pour interrogatoire.</p></div></li>
+      <li><div><b>Supervision</b><p>Date et heure fixées avec un membre de l'équipe qui encadre la scène.</p></div></li>
+      <li><div><b>Créneau</b><p>Attaques entre 21 h et 1 h. Les attaquants doivent tenir le labo 20 minutes, sinon il reste aux défenseurs.</p></div></li>
+      <li><div><b>Victoire des attaquants</b><p>Ils deviennent propriétaires avec 7 jours de protection ; les anciens propriétaires ne peuvent pas le reprendre pendant une semaine.</p></div></li>
+      <li><div><b>Victoire des défenseurs</b><p>Ils gardent le labo et peuvent prendre 25 % de l'inventaire des attaquants, qui ne peuvent plus attaquer aucun labo pendant 7 jours.</p></div></li>
+      <li><div><b>Protection</b><p>Pendant les 7 jours de protection, les autres groupes peuvent tout de même rassembler des preuves.</p></div></li>
+      <li><div><b>Un labo par groupe</b><p>Jamais plus.</p></div></li>
+      <li><div><b>Non-respect</b><p>Scène annulée et sanctions.</p></div></li>
+      <li><div><b>Ouvrir aux indépendants</b><p>Le propriétaire accueille 3 groupes indépendants parrainés, qui récoltent et utilisent le labo contre une compensation RP.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="police">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Forces de l'ordre</h2><p class="chap-intro">LSPD et BCSO tiennent la ville. Leur insigne donne des moyens et impose des devoirs.</p></header>
+    <ol class="regles">
+      <li><div><b>Tenue de la fonction</b><p>Attitude professionnelle et respectueuse envers les citoyens comme entre collègues.</p></div></li>
+      <li><div><b>Corruption et infiltration</b><p>Uniquement avec l'accord préalable de l'équipe et un dossier RP validé.</p></div></li>
+      <li><div><b>Les PNJ comptent</b><p>Ils sont traités comme des êtres humains ; un acte contre eux peut être poursuivi.</p></div></li>
+      <li><div><b>Usurpation</b><p>Se faire passer pour un agent est sanctionné, sauf scène autorisée par l'équipe.</p></div></li>
+      <li><div><b>Usage de la force</b><p>Un agent ne tire jamais le premier sauf danger imminent. L'arme létale reste le dernier recours, proportionné.</p></div></li>
+      <li><div><b>Armes de service</b><p>Ni revendues, ni données.</p></div></li>
+      <li><div><b>Convoi illégal</b><p>On n'intervient jamais seul : on attend les renforts.</p></div></li>
+      <li><div><b>Points de drogue</b><p>Pas de patrouille ni de planque dessus ; les contrôles routiers sont à privilégier.</p></div></li>
+      <li><div><b>Proportionnalité</b><p>Taser ou matraque face à peu d'agressivité. Braquage de supérette : 5 agents au plus contre 4 braqueurs (armes légères, herse). Fleeca ou bijouterie : armes automatiques autorisées.</p></div></li>
+      <li><div><b>Armes automatiques</b><p>Face à un groupe armé conséquent, ou si les assaillants en ont.</p></div></li>
+      <li><div><b>Saisies</b><p>Armes d'une fusillade saisies sur-le-champ pour sécuriser ; le reste (drogue, argent) au poste, après lecture des droits.</p></div></li>
+      <li><div><b>Arrestation</b><p>Menotté dans un véhicule de police, le suspect est arrêté. Il n'est libéré qu'en fin de peine (garde à vue ou prison), par l'attaque annoncée d'un convoi pénitentiaire, ou par une scène de libération cohérente. Toute libération prématurée est sanctionnée.</p></div></li>
+      <li><div><b>Dialogue d'abord</b><p>Lors d'un contrôle, la parole passe avant la force.</p></div></li>
+      <li><div><b>Rapport</b><p>Obligatoire après chaque arrestation : nom, infraction, preuves, suites.</p></div></li>
+      <li><div><b>Procès</b><p>Pour un crime majeur, l'arrêté peut demander un procès RP, avec avocat ou représentant.</p></div></li>
+      <li><div><b>Quartiers de gangs</b><p>Pas des zones Mass RP : accès libre, Fear RP face aux gangs, respect des habitants qui n'y sont pour rien.</p></div></li>
+      <li><div><b>Autres services</b><p>Secours, Gruppe 6, collègues de l'autre corps : chacun son rôle, ni entrave ni mépris.</p></div></li>
+      <li><div><b>Supervision</b><p>Les hauts gradés encadrent les opérations majeures (braquages, descentes, grosses arrestations).</p></div></li>
+      <li><div><b>Discipline interne</b><p>Mise à pied, suspension ou rétrogradation en cas de manquement aux règles internes.</p></div></li>
+      <li><div><b>Juridiction</b><p>LSPD à Los Santos, BCSO dans le comté de Blaine ; sortir de sa zone doit se justifier.</p></div></li>
+      <li><div><b>Sirène</b><p>Interdite pour un déplacement non prioritaire.</p></div></li>
+      <li><div><b>Course-poursuite</b><p>PIT après <strong>15 minutes</strong>, sous 100 km/h et proprement (plus tôt en cas d'abus flagrant du suspect : No Pain, Win RP, powergaming). Hélicoptère en soutien après 10 minutes. Véhicule de police endommagé : retour au poste. Une poursuite intéressante peut se prolonger.</p><span class="chip gold">PIT 15 min</span></div></li>
+      <li><div><b>Véhicules de service</b><p>Uniquement en service, et jamais de véhicule civil quand on est en service.</p></div></li>
+      <li><div><b>Pendant un braquage</b><p>L'objectif est d'amener les suspects à partir pour lancer la poursuite : on reste dans son véhicule, on négocie avec fair-play, puis on poursuit.</p></div></li>
+      <li><div><b>Otages</b><p>Leur sécurité prime. Assaut déconseillé, permis seulement si les otages sont vraiment en danger, avec des tirs limités et justifiés par vidéo. La négociation reste la voie normale.</p></div></li>
+      <li><div><b>Dossiers obligatoires</b><p>Prison fédérale de plus de 24 heures, descente dans un QG ou sur un point chaud (récolte, labo), saisie ou fouille d'appartements, de véhicules ou de biens. Le dossier repose sur une vraie enquête (écoutes, filatures, témoignages, saisies) : résumé, preuves, objectif, liste des agents (25 au plus), transmis au moins 48 heures avant.</p></div></li>
+      <li><div><b>Effectifs proportionnés</b><p>10 assaillants : 15 agents. 15 assaillants : 20 agents. 20 assaillants : 25 agents.</p></div></li>
+      <li><div><b>Scène majeure</b><p>25 agents au plus sur place, les autres veillent sur la ville. Des renforts peuvent être demandés en jeu en cas de drame (agents blessés, otages en danger, fusillade hors de contrôle).</p></div></li>
+      <li><div><b>Scènes communes</b><p>LSPD et BCSO peuvent travailler ensemble dans la limite globale (15 LSPD et 10 BCSO, par exemple).</p></div></li>
+      <li><div><b>Couverture de secteur</b><p>Pendant une scène majeure, un corps peut demander à l'autre de couvrir son secteur.</p></div></li>
+      <li><div><b>Gilets</b><p>Kevlar léger en patrouille ; gilet lourd pour les scènes majeures ou à partir du niveau d'alerte DEFCON III.</p></div></li>
+      <li><div><b>Plafond d'une scène</b><p>51 participants : 20 assaillants, 25 agents, 6 otages. Une autre répartition ou un dépassement passe par un dossier validé, jamais d'office (fluidité du serveur, FPS, couverture de la ville).</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="secours">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Secours</h2><p class="chap-intro">Les médecins soignent tout le monde, sans choisir de camp.</p></header>
+    <ol class="regles">
+      <li><div><b>Porter secours</b><p>Toute personne blessée ou en détresse est aidée, sans distinction.</p></div></li>
+      <li><div><b>Neutralité</b><p>Ni favoritisme ni discrimination, côté légal comme illégal.</p></div></li>
+      <li><div><b>Scènes réalistes</b><p>À l'hôpital comme sur le terrain, les soins se jouent sérieusement.</p></div></li>
+      <li><div><b>Sirène</b><p>Pas pour un trajet non prioritaire.</p></div></li>
+      <li><div><b>Illégal hors service</b><p>Un médecin peut avoir une activité illégale, jamais en service. Ambulance, radio et matériel médical ne servent jamais à des fins illégales ; un abus de rôle est sévèrement puni.</p></div></li>
+      <li><div><b>Fusillade en cours</b><p>On n'intervient pas : on attend que la zone soit sécurisée, en lien avec les forces de l'ordre.</p></div></li>
+      <li><div><b>Tarifs</b><p>La grille officielle s'applique : ni surfacturation, ni prix cassés.</p></div></li>
+      <li><div><b>Sanctions</b><p>De l'avertissement à l'exclusion, temporaire ou définitive, des services publics.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="entreprises">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Entreprises</h2><p class="chap-intro">Diriger une entreprise, c'est faire vivre la ville et ses employés.</p></header>
+    <ol class="regles">
+      <li><div><b>Gestion sérieuse</b><p>Une entreprise se gère avec cohérence.</p></div></li>
+      <li><div><b>Compte de l'entreprise</b><p>Retirer de grosses sommes est interdit.</p></div></li>
+      <li><div><b>Une seule à la fois</b><p>Un patron dirige une entreprise. Pas de nouveau dossier tant qu'il en détient les clés ou les responsabilités.</p></div></li>
+      <li><div><b>Permissions de métier</b><p>S'en servir pour un avantage RP (fouiller des véhicules, par exemple) est interdit.</p></div></li>
+      <li><div><b>Coffre</b><p>Rien ne s'y prend pour un usage personnel.</p></div></li>
+      <li><div><b>Commandes en gros</b><p>Réservées à la direction.</p></div></li>
+      <li><div><b>Pas de revente</b><p>Une entreprise ne se vend pas. Pour partir, on prévient les gérants par ticket.</p></div></li>
+      <li><div><b>Un patron</b><p>Une entreprise n'a qu'un seul patron.</p></div></li>
+      <li><div><b>Patron responsable</b><p>Un employé qui triche, duplique ou exploite un bug est renvoyé sur-le-champ et signalé. Sinon, le patron en répond et perd l'entreprise.</p></div></li>
+      <li><div><b>Exclusivité</b><p>Le patron ne joue pas sur un autre serveur.</p></div></li>
+      <li><div><b>Discord officiel</b><p>Pas de Discord indépendant ni de groupe privé : l'entreprise serait retirée.</p></div></li>
+      <li><div><b>Métiers sans illégal</b><p>Agence immobilière, Ammunation, Gruppe 6, LSPD, BCSO, gouvernement et justice n'ont aucune activité illégale, sous peine de wipe et de bannissement, sauf dossier validé.</p></div></li>
+      <li><div><b>Animation</b><p>Au moins un événement RP par semaine.</p></div></li>
+      <li><div><b>Collaboration</b><p>Travailler avec d'autres entreprises est obligatoire.</p></div></li>
+      <li><div><b>Stocks</b><p>Réalistes : pas de commandes excessives ni de stockage sans raison.</p></div></li>
+      <li><div><b>Outils de travail</b><p>Véhicules et matériel de l'entreprise réservés à l'usage professionnel.</p></div></li>
+      <li><div><b>Inactivité</b><p>Un patron absent plusieurs jours sans justification peut être démis.</p></div></li>
+      <li><div><b>Pas de favoritisme</b><p>Refuser de vendre pour bloquer un concurrent, distribuer les postes par copinage ou offrir des services gratuits est sanctionné.</p></div></li>
+      <li><div><b>Annonces</b><p>Les annonces d'entreprise restent professionnelles.</p></div></li>
+      <li><div><b>Comptabilité</b><p>Tenue à jour : salaires, primes, suivi du travail, dépenses.</p></div></li>
+      <li><div><b>Blacklist légal</b><p>Temporaire. Pendant sa durée : pas de reprise d'entreprise, pas d'accès au menu patron, pas de poste de direction. Motifs : vol de documents ou de comptabilité, manque de respect envers l'équipe, exploitation de bug, récidive.</p></div></li>
+      <li><div><b>Reprendre une entreprise</b><p>Dossier Google Docs, Slides ou Canva, salaires à 60 % au moins. Conditions : 30 jours d'ancienneté, 16 ans minimum, joueur très actif.</p></div></li>
+      <li><div><b>Services tiers</b><p>Sites, bots Discord, applications ou API liés au serveur sans accord : bannissement définitif sans avertissement.</p><span class="chip red">Ban définitif</span></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="equipe">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>L'équipe</h2><p class="chap-intro">Ce que tu peux attendre du staff, et ce qu'il attend de toi.</p></header>
+    <ol class="regles">
+      <li><div><b>Impartialité</b><p>Chaque décision est prise sans parti pris.</p></div></li>
+      <li><div><b>Pas de pouvoirs en jeu</b><p>Un membre qui utilise ses permissions pour son personnage est exclu définitivement de l'équipe.</p></div></li>
+      <li><div><b>Jamais juge et partie</b><p>Impliqué dans une scène, un membre ne la traite pas : un collègue neutre prend le relais.</p></div></li>
+      <li><div><b>Respect et calme</b><p>Communication respectueuse et sang-froid en toutes circonstances, sous peine d'exclusion.</p></div></li>
+      <li><div><b>Expliquer</b><p>Règles et décisions sont expliquées clairement.</p></div></li>
+      <li><div><b>Confidentialité</b><p>Les échanges avec les joueurs ne sont pas diffusés publiquement sans autorisation.</p></div></li>
+      <li><div><b>Tickets sans réponse</b><p>Supprimés sans préavis après 24 heures sans nouvelle du joueur.</p></div></li>
+      <li><div><b>Bénévolat</b><p>L'équipe est bénévole : les délais de réponse varient.</p></div></li>
+      <li><div><b>Respect de l'équipe</b><p>Insulter ou manquer de respect à un membre du staff : bannissement définitif.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Petits différends</b><p>L'équipe n'arbitre pas les litiges mineurs entre joueurs sans impact RP.</p></div></li>
+      <li><div><b>Abus du staff</b><p>Sanctionné en interne : avertissement, suspension ou exclusion. Signale-le par ticket. Une plainte mensongère peut valoir un bannissement définitif ; une plainte rejetée faute de preuves n'est pas une plainte mensongère.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="boutique">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Boutique &amp; créateurs</h2><p class="chap-intro">Soutenir le serveur, oui. Acheter la victoire, non.</p></header>
+    <ol class="regles">
+      <li><div><b>Achats personnels</b><p>Un article acheté ne se revend pas, ne s'échange pas et ne se donne pas.</p></div></li>
+      <li><div><b>Remboursement</b><p>Aucun, sauf problème venant du serveur, preuve à l'appui.</p></div></li>
+      <li><div><b>Litige bancaire</b><p>Ouvrir un litige ou une rétrofacturation : bannissement définitif du serveur et du Discord, dossier transmis à Tebex et à la banque.</p><span class="chip red">Ban définitif</span></div></li>
+      <li><div><b>Sans pay-to-win</b><p>La boutique finance le serveur. Elle ne vend ni arme, ni protection contre une sanction, ni statut, ni priorité abusive, ni véhicule surpuissant ; les véhicules rapides sont interdits en illégal.</p></div></li>
+    </ol>
+    <h3>Streamers et vidéastes</h3>
+    <ol class="regles">
+      <li><div><b>Devenir créateur officiel</b><p>Régularité, qualité du contenu, de l'image et du son, mise en avant de PaladinsRP et contenu déjà publié sur le serveur. Candidature par ticket.</p></div></li>
+      <li><div><b>Avantages</b><p>Partage de ton contenu, accès à des scènes et événements inédits, visibilité auprès de la communauté.</p></div></li>
+      <li><div><b>Raid</b><p>En fin de live, pense à raid un autre streamer de la communauté.</p></div></li>
+      <li><div><b>Ta communauté</b><p>Tu réponds de ses débordements : harcèlement, spam, toxicité.</p></div></li>
+      <li><div><b>Partage</b><p>Uniquement dans les salons prévus, aux formats demandés.</p></div></li>
+      <li><div><b>Un serveur à la fois</b><p>Diffuser plusieurs serveurs RP en même temps est interdit.</p></div></li>
+      <li><div><b>Sanctions</b><p>Retrait du statut ; en cas de faute grave, sanctions RP ou bannissement du serveur et du Discord.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="chap" id="sanctions">
+    <header class="chap-tete"><span class="chap-num" aria-hidden="true"></span><h2>Sanctions</h2><p class="chap-intro">Graduées, motivées, contestables.</p></header>
+    <div class="echelle bloc">
+      <div style="--c:var(--green)"><b>Avertissement</b><span>Pour une première faute sans gravité.</span></div>
+      <div style="--c:var(--neon)"><b>Mute</b><span>Temporaire ou définitif sur le Discord.</span></div>
+      <div style="--c:#E58A4E"><b>Ban temporaire</b><span>Selon la gravité et la récidive.</span></div>
+      <div style="--c:var(--red)"><b>Ban définitif</b><span>Triche, haine, publicité, litige bancaire, contournement.</span></div>
+    </div>
+    <ol class="regles">
+      <li><div><b>Gradation</b><p>La sanction dépend de la gravité, de l'impact sur les autres et de ton historique. Une faute grave peut sauter des étapes.</p></div></li>
+      <li><div><b>Wipe</b><p>Hors échelle, un wipe peut s'ajouter lorsqu'un gain a été obtenu de manière illégitime.</p></div></li>
+      <li><div><b>Contester</b><p>Ticket « Contester une sanction », avec ton identifiant et tes arguments.</p></div></li>
+      <li><div><b>Pas de déban général</b><p>Un bannissement n'est levé qu'au cas par cas, sur preuve d'une erreur ou après un changement durable de comportement.</p></div></li>
+    </ol>
+    <div class="engagements" data-rv>
+      <p class="sur">De notre côté</p>
+      <h2>Nos engagements</h2>
+      <ul>
+        <li><b>Le RP avant tout</b><span>Tout comportement hors-jeu ou abusif est traité sérieusement.</span></li>
+        <li><b>Pas de pay-to-win</b><span>Rien en boutique ne donne d'avantage en combat ni d'immunité.</span></li>
+        <li><b>Personne au-dessus des règles</b><span>L'équipe joue sans immunité et subit les mêmes sanctions.</span></li>
+        <li><b>Une communauté protégée</b><span>Toute menace envers un joueur ou un membre du staff entraîne un bannissement définitif.</span></li>
+        <li><b>Des décisions motivées</b><span>Règlement public, appliqué à tous, administration comprise.</span></li>
+        <li><b>Le droit d'apprendre</b><span>Un nouveau joueur est formé avant d'être rejeté, guides et tutoriels à l'appui.</span></li>
+        <li><b>À l'écoute</b><span>Propositions et votes de la communauté orientent la ville.</span></li>
+      </ul>
+    </div>
+  </section>
+  </div>
+</div>
+
 </main>
 <footer class="pied">
   <nav aria-label="Pied de page"><a href="lore.html">Le lore</a><a href="serveur.html">Le serveur</a><a href="boutique.html">Boutique</a><a href="reglement.html">Règlement</a><a href="https://discord.gg/paladinsrp" target="_blank" rel="noopener">Discord</a></nav>
@@ -34,5 +589,6 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
 <script src="assets/js/main.js?v=2"></script>
+<script src="assets/js/reglement.js?v=3"></script>
 </body>
 </html>
