@@ -29,6 +29,20 @@
       desc: "<p>Le pack ultime. Véhicules exclusifs, packs, personnalisation : tu fais le tour de la boutique sans compter, avec le meilleur rapport coins par euro.</p><ul><li>10 000 coins crédités sur ton compte en jeu</li><li>Meilleure valeur : bonus de 18 % par rapport au petit pack</li><li>Le plus gros soutien au développement du serveur</li></ul>"
     }
   };
+  // Grades VIP (catégorie « vip » sur Tebex) : textes du site, reconnus par le nom du package
+  var VIP = {
+    bronze: { couleur: '#C98A55', accroche: "L'essentiel pour soutenir le serveur et profiter de la ville.",
+      atouts: ["35 000 $ en banque à l'activation", 'Salaire VIP de 650 $ par heure de jeu', "-4 % en concession et à l'agence immobilière", '+33 % de gains en zone AFK', '10 meubles VIP pour ton logement'] },
+    argent: { couleur: '#C9D1DC', accroche: "Plus de moyens, plus de confort, dès ta connexion.",
+      atouts: ["60 000 $ en banque et 500 coins à l'activation", 'Salaire VIP de 1 000 $ par heure de jeu', "-6 % en concession et à l'agence immobilière", '+50 % de gains en zone AFK', '15 meubles VIP pour ton logement'] },
+    or: { couleur: '#E8BA52', accroche: "Le grade de ceux qui comptent en ville.",
+      atouts: ["80 000 $ en banque et 1 000 coins à l'activation", 'Salaire VIP de 1 500 $ par heure de jeu', "-8 % en concession et à l'agence immobilière", '+66 % de gains en zone AFK', '20 meubles VIP pour ton logement'] },
+    diamant: { couleur: '#9FD8FF', accroche: "Le sommet. Rien ne te résiste.",
+      atouts: ["100 000 $ en banque et 2 000 coins à l'activation", 'Salaire VIP de 2 000 $ par heure de jeu', "-10 % en concession et à l'agence immobilière", 'Gains doublés en zone AFK', '40 meubles VIP pour ton logement'] }
+  };
+  var VIP_COMMUNS = ['Emotes exclusives', 'Import de photos sur le téléphone', 'Boombox offerte', 'Rôle VIP et salons réservés sur le Discord'];
+  var ORDRE_VIP = ['bronze', 'argent', 'or', 'diamant'];
+
   // Affiché si l'API Tebex ne répond pas (les achats restent alors indisponibles)
   var SECOURS = [
     { id: 7779209, name: 'Paladins Coins x1500', base_price: 14.99, total_price: 17.99, discount: 0, currency: 'EUR' },
@@ -38,7 +52,7 @@
   ];
 
   var $ = function (id) { return document.getElementById(id); };
-  var etat = { packs: [], panier: null, courant: null, horsLigne: false };
+  var etat = { packs: [], vip: [], panier: null, courant: null, horsLigne: false };
 
   function prix(v, devise) {
     return new Intl.NumberFormat('fr-FR', { style: 'currency', currency: devise || 'EUR' }).format(v || 0);
@@ -50,7 +64,26 @@
     var m = String(p.name).replace(/\s/g, '').match(/x(\d+)/i);
     return m ? Number(m[1]) : 0;
   }
-  function fiche(p) { return FICHES[qte(p)] || {}; }
+  function gradeVip(p) {
+    var n = String(p.name || '').toLowerCase();
+    for (var i = ORDRE_VIP.length - 1; i >= 0; i--) if (new RegExp('\\b' + ORDRE_VIP[i] + '\\b').test(n)) return ORDRE_VIP[i];
+    return null;
+  }
+  function estVip(p) { return etat.vip.some(function (x) { return String(x.id) === String(p.id); }); }
+  function tous() { return etat.packs.concat(etat.vip); }
+  function trouver(id) { return tous().find(function (x) { return String(x.id) === String(id); }); }
+  function listeVip(g) {
+    return '<ul>' + VIP[g].atouts.concat(VIP_COMMUNS).map(function (t) { return '<li>' + echap(t) + '</li>'; }).join('') + '</ul>';
+  }
+  function fiche(p) {
+    if (estVip(p)) {
+      var g = gradeVip(p);
+      if (!g) return { img: p.image };
+      return { img: p.image, accroche: VIP[g].accroche, desc: '<p>' + echap(VIP[g].accroche) + ' Abonnement mensuel, lié au personnage connecté lors du premier achat. Les montants en banque et les coins sont versés une seule fois par grade.</p>' + listeVip(g) };
+    }
+    return FICHES[qte(p)] || {};
+  }
+  function libelle(p) { return estVip(p) ? p.name : qte(p).toLocaleString('fr-FR') + ' coins'; }
   // Prix hors taxes : base_price, réduit si une promo est active
   function prixHT(p) { return Math.max(0, (p.base_price || 0) - (p.discount || 0)); }
 
@@ -88,7 +121,12 @@
     squelette();
     return api('/accounts/' + TOKEN + '/categories?includePackages=1').then(function (cats) {
       etat.packs = [];
-      cats.forEach(function (c) { (c.packages || []).forEach(function (p) { etat.packs.push(p); }); });
+      etat.vip = [];
+      cats.forEach(function (c) {
+        var liste = /vip/i.test(c.name || '') ? etat.vip : etat.packs;
+        (c.packages || []).forEach(function (p) { liste.push(p); });
+      });
+      etat.vip.sort(function (a, b) { return ORDRE_VIP.indexOf(gradeVip(a)) - ORDRE_VIP.indexOf(gradeVip(b)); });
     }).catch(function () {
       etat.packs = SECOURS;
       etat.horsLigne = true;
@@ -97,6 +135,7 @@
     }).then(function () {
       etat.packs.sort(function (a, b) { return qte(a) - qte(b); });
       afficherPacks();
+      afficherVip();
     });
   }
 
@@ -124,7 +163,26 @@
 
   function blocPrix(p) {
     var promo = p.discount > 0 ? '<s>' + prix(p.base_price, p.currency) + '</s>' : '';
-    return '<div class="prix">' + promo + '<b>' + prix(prixHT(p), p.currency) + '</b><span>HT · TVA au paiement</span></div>';
+    var mois = estVip(p) ? '<small> / mois</small>' : '';
+    return '<div class="prix">' + promo + '<b>' + prix(prixHT(p), p.currency) + mois + '</b><span>HT · TVA au paiement</span></div>';
+  }
+
+  function afficherVip() {
+    var bloc = $('vipSection');
+    if (!bloc) return;
+    if (!etat.vip.length) { bloc.hidden = true; return; }
+    bloc.hidden = false;
+    var n = etat.vip.length;
+    $('vips').innerHTML = etat.vip.map(function (p, i) {
+      var g = gradeVip(p) || 'bronze';
+      return '<article class="vip-carte' + (i === n - 1 ? ' haut' : '') + '" style="--grade:' + VIP[g].couleur + '" data-pack="' + p.id + '" tabindex="0">' +
+        '<div class="vip-tete"><span class="vip-sur">VIP</span><h3>' + echap(g.charAt(0).toUpperCase() + g.slice(1)) + '</h3>' +
+        '<p>' + echap(VIP[g].accroche) + '</p></div>' +
+        '<ul class="vip-atouts">' + VIP[g].atouts.map(function (t) { return '<li>' + echap(t) + '</li>'; }).join('') +
+        '<li class="commun">+ tous les avantages communs</li></ul>' +
+        '<div class="pack-pied">' + blocPrix(p) + '<button class="btn btn-p" data-acheter="' + p.id + '">S\'abonner</button></div></article>';
+    }).join('');
+    if (window.gsap) gsap.fromTo('.vip-carte', { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 1.2, stagger: 0.12, ease: 'expo.out' });
   }
 
   function animer() {
@@ -134,14 +192,15 @@
 
   // ---------- Fiche ----------
   function ouvrirFiche(id) {
-    var p = etat.packs.find(function (x) { return String(x.id) === String(id); });
+    var p = trouver(id);
     if (!p) return;
     var f = fiche(p);
     etat.courant = p;
     $('ficheImg').src = f.img || p.image || '';
     $('ficheImg').alt = p.name;
-    $('ficheSur').textContent = 'Pack de coins';
-    $('ficheTitre').textContent = qte(p).toLocaleString('fr-FR') + ' coins';
+    $('ficheImg').classList.toggle('contenu', estVip(p));
+    $('ficheSur').textContent = estVip(p) ? 'Abonnement mensuel' : 'Pack de coins';
+    $('ficheTitre').textContent = libelle(p);
     $('ficheDesc').innerHTML = f.desc || p.description || '';
     $('fichePrix').outerHTML = blocPrix(p).replace('class="prix"', 'class="prix" id="fichePrix"');
     $('fiche').hidden = false;
@@ -218,11 +277,11 @@
 
     var devise = (b && b.currency) || 'EUR';
     $('panierItems').innerHTML = items.length ? items.map(function (p) {
-      var c = etat.packs.find(function (x) { return String(x.id) === String(p.id); }) || p;
+      var c = trouver(p.id) || p;
       var q = (p.in_basket && p.in_basket.quantity) || 1;
       var img = fiche(c).img || p.image || c.image;
       return '<div class="panier-item">' + (img ? '<img src="' + echap(img) + '" alt="">' : '<span></span>') +
-        '<div><b>' + qte(c).toLocaleString('fr-FR') + ' coins</b><span>' + (q > 1 ? q + ' x ' : '') + prix(prixHT(c), devise) + ' HT</span></div>' +
+        '<div><b>' + echap(libelle(c)) + '</b><span>' + (q > 1 ? q + ' x ' : '') + prix(prixHT(c), devise) + ' HT' + (estVip(c) ? ' / mois' : '') + '</span></div>' +
         '<button data-retirer="' + p.id + '" aria-label="Retirer">&times;</button></div>';
     }).join('') : '<p class="panier-vide">Ton panier est vide.</p>';
 
