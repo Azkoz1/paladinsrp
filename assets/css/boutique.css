@@ -103,13 +103,16 @@
 .vip-carte.haut{box-shadow:0 0 0 1px color-mix(in srgb,var(--grade) 35%,transparent)}
 .vip-sur{font:400 12px/1 var(--mono);letter-spacing:.24em;color:var(--muted)}
 .vip-tete h3{margin:6px 0 0;font:600 clamp(44px,3.8vw,58px)/.9 var(--titre);color:var(--grade);text-transform:uppercase;letter-spacing:.02em}
+.vip-tete .vip-coins{display:inline-flex;align-items:baseline;gap:8px;margin:14px 0 0;padding:6px 12px;background:color-mix(in srgb,var(--grade) 14%,transparent);border:1px solid color-mix(in srgb,var(--grade) 45%,transparent);font:600 26px/1 var(--titre);color:#fff;letter-spacing:.02em}
+.vip-tete .vip-coins small{font:600 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--grade)}
 .vip-tete p{margin:12px 0 18px;color:var(--muted);font-size:15.5px;line-height:1.5}
 .vip-atouts{display:grid;gap:9px;margin:0 0 20px;padding:0;list-style:none}
 .vip-atouts li{position:relative;padding-left:20px;font-size:15px;line-height:1.4;color:var(--text)}
 .vip-atouts li:before{content:"";position:absolute;left:0;top:7px;width:7px;height:7px;background:var(--grade);transform:rotate(45deg)}
 .vip-atouts li.commun{color:var(--muted)}
 .vip-atouts li.commun:before{background:var(--line-fort)}
-.vip-carte .pack-pied{margin-top:auto}
+.vip-carte .pack-pied{margin-top:auto;flex-wrap:wrap}
+.vip-tete .vip-coins{white-space:nowrap;max-width:100%}
 .vip-carte .btn{min-height:44px;padding:0 18px;font-size:13px}
 .vip-carte .prix b,.fiche .prix b{white-space:nowrap}
 .fiche img.contenu{object-fit:contain;background:#0E0B13}

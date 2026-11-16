@@ -31,14 +31,14 @@
   };
   // Grades VIP (catégorie « vip » sur Tebex) : textes du site, reconnus par le nom du package
   var VIP = {
-    bronze: { couleur: '#C98A55', accroche: "L'essentiel pour soutenir le serveur et profiter de la ville.",
+    bronze: { couleur: '#C98A55', coins: 0, accroche: "L'essentiel pour soutenir le serveur et profiter de la ville.",
       atouts: ["35 000 $ en banque à l'activation", 'Salaire VIP de 650 $ par heure de jeu', "-4 % en concession et à l'agence immobilière", '+33 % de gains en zone AFK', '10 meubles VIP pour ton logement'] },
-    argent: { couleur: '#C9D1DC', accroche: "Plus de moyens, plus de confort, dès ta connexion.",
-      atouts: ["60 000 $ en banque et 500 coins à l'activation", 'Salaire VIP de 1 000 $ par heure de jeu', "-6 % en concession et à l'agence immobilière", '+50 % de gains en zone AFK', '15 meubles VIP pour ton logement'] },
-    or: { couleur: '#E8BA52', accroche: "Le grade de ceux qui comptent en ville.",
-      atouts: ["80 000 $ en banque et 1 000 coins à l'activation", 'Salaire VIP de 1 500 $ par heure de jeu', "-8 % en concession et à l'agence immobilière", '+66 % de gains en zone AFK', '20 meubles VIP pour ton logement'] },
-    diamant: { couleur: '#9FD8FF', accroche: "Le sommet. Rien ne te résiste.",
-      atouts: ["100 000 $ en banque et 2 000 coins à l'activation", 'Salaire VIP de 2 000 $ par heure de jeu', "-10 % en concession et à l'agence immobilière", 'Gains doublés en zone AFK', '40 meubles VIP pour ton logement'] }
+    argent: { couleur: '#C9D1DC', coins: 500, accroche: "Plus de moyens, plus de confort, dès ta connexion.",
+      atouts: ['500 Paladins Coins offerts', "60 000 $ en banque à l'activation", 'Salaire VIP de 1 000 $ par heure de jeu', "-6 % en concession et à l'agence immobilière", '+50 % de gains en zone AFK', '15 meubles VIP pour ton logement'] },
+    or: { couleur: '#E8BA52', coins: 1000, accroche: "Le grade de ceux qui comptent en ville.",
+      atouts: ['1 000 Paladins Coins offerts', "80 000 $ en banque à l'activation", 'Salaire VIP de 1 500 $ par heure de jeu', "-8 % en concession et à l'agence immobilière", '+66 % de gains en zone AFK', '20 meubles VIP pour ton logement'] },
+    diamant: { couleur: '#9FD8FF', coins: 2000, accroche: "Le sommet. Rien ne te résiste.",
+      atouts: ['2 000 Paladins Coins offerts', "100 000 $ en banque à l'activation", 'Salaire VIP de 2 000 $ par heure de jeu', "-10 % en concession et à l'agence immobilière", 'Gains doublés en zone AFK', '40 meubles VIP pour ton logement'] }
   };
   var VIP_COMMUNS = ['Emotes exclusives', 'Import de photos sur le téléphone', 'Boombox offerte', 'Rôle VIP et salons réservés sur le Discord'];
   var ORDRE_VIP = ['bronze', 'argent', 'or', 'diamant'];
@@ -177,6 +177,7 @@
       var g = gradeVip(p) || 'bronze';
       return '<article class="vip-carte' + (i === n - 1 ? ' haut' : '') + '" style="--grade:' + VIP[g].couleur + '" data-pack="' + p.id + '" tabindex="0">' +
         '<div class="vip-tete"><span class="vip-sur">VIP</span><h3>' + echap(g.charAt(0).toUpperCase() + g.slice(1)) + '</h3>' +
+        (VIP[g].coins ? '<p class="vip-coins">+' + String(VIP[g].coins).replace(/\B(?=(\d{3})+$)/g, ' ') + ' <small>Coins offerts</small></p>' : '') +
         '<p>' + echap(VIP[g].accroche) + '</p></div>' +
         '<ul class="vip-atouts">' + VIP[g].atouts.map(function (t) { return '<li>' + echap(t) + '</li>'; }).join('') +
         '<li class="commun">+ tous les avantages communs</li></ul>' +
